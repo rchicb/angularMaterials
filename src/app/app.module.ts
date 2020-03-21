@@ -8,6 +8,7 @@ import { MatTableModule } from '@angular/material/table';
 import { DataTableComponent } from './data-table/data-table.component';
 import { DataTableUsuariosComponent } from './data-table-usuarios/data-table-usuarios.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatSliderModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

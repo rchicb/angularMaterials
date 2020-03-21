@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angularMaterials';
+
+  myDataArray:any=['a','b','c','d','e','f'];
 }

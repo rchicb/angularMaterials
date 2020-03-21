@@ -3,6 +3,7 @@ import { Usuario } from '../clases/usuarios/usuario';
 import { ConsumoService } from '../servicios/consumo.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
 
 
 
@@ -13,11 +14,12 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class DataTableUsuariosComponent implements OnInit {
 
-  headerDataTable:string[]=['salario','email','nombre','id'];
+  headerDataTable:string[]=['salario','email','nombre','id','configuracion'];
   userList:Usuario[]=[];
   // dataSource:Usuario[]=[];
   dataSource:MatTableDataSource<Usuario>;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(private consumo:ConsumoService) { }
 
@@ -28,10 +30,16 @@ export class DataTableUsuariosComponent implements OnInit {
       datos=>{
         this.userList=datos;
         // this.dataSource=this.userList;
-        this.dataSource=new MatTableDataSource<Usuario>(datos)
+        this.dataSource=new MatTableDataSource<Usuario>(datos);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort=this.sort;
       }
     );
-    this.dataSource.paginator = this.paginator;
+   
+  }
+  optionConfiguration(elemento){
+    // alert(elemento);
+    console.log(elemento);
   }
 
 }
